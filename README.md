@@ -12,12 +12,17 @@ Sorry, but I use `archinstall` btw, and I install a bunch of bloat I love.
 - swap: no
 - root password: yes
 
-Packages:
+Tools for developing:
 - git
 - yay
 - visual-studio-code-bin
 - nodejs (19) | nodejs-lts-hydrogen (18) | nodejs-lts-gallium (16)
 - npm
 - jdk11-openjdk
+- rustup: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 sudo npm i -g yarn
+
+Daily utilities:
+- oh-my-zsh
+- fzf
