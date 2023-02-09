@@ -59,3 +59,14 @@ if ! [ -d ~/.oh-my-zsh ]; then
 	curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 fi
 
+# TODO: ~/.local/bin to PATH
+# TODO: ~/go/bin to PATH
+# TODO: generate ssh keys
+# TODO: docker group
+# TODO: kwin-bismuth?
+# TODO: ncdu?
+# TODO: git config user
+# TODO: vlc
+# TODO: zshrc
+# TODO: .gitconfig
+# TODO: delta
