@@ -1,4 +1,14 @@
-#!/bin/bash
+# decided to not make is as a script per se, but instead a
+# guide from where I can copy commands and run them, therefore
+# making it quicker and simpler to document
+
+# upgrade
+su root -c "pacman -Syu"
+
+# sudo: install and configure
+if ! [ -x "$(command -v sudo)" ]; then
+	su root -c "pacman -S sudo && usermod -aG wheel $USER"
+fi
 
 # yay
 if ! [ -x "$(command -v yay)" ]; then
@@ -17,6 +27,7 @@ pkgs=(
 	zsh
 	fd
 	ripgrep
+	vlc
 
 
 	# developer tools
@@ -43,6 +54,11 @@ if ! [ -x "$(command -v vim)" ]; then
 	sudo ln -s /usr/bin/nvim /usr/bin/vim 
 fi
 
+# oh-my-zsh
+if ! [ -d ~/.oh-my-zsh ]; then
+	sh -c $("curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh")
+fi
+
 # lunarvim
 if ! [ -x "$(command -v lvim)" ]; then
 	LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
@@ -54,19 +70,19 @@ if ! [ -x "$(command -v yarn)" ]; then
 	sudo npm i -g yarn 
 fi
 
-# oh-my-zsh
-if ! [ -d ~/.oh-my-zsh ]; then
-	curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-fi
+# git user
+git config --global user.name 'Igor Melo'
+git config --global user.email 'igoracmelo@protonmail.com'
 
-# TODO: ~/.local/bin to PATH
-# TODO: ~/go/bin to PATH
+# PATH
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
+
+ssh-keygen
+
 # TODO: generate ssh keys
 # TODO: docker group
 # TODO: kwin-bismuth?
 # TODO: ncdu?
-# TODO: git config user
-# TODO: vlc
 # TODO: zshrc
 # TODO: .gitconfig
-# TODO: delta
