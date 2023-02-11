@@ -11,7 +11,7 @@ cd yay-bin
 makepkg -si
 ```
 
-# installing programs from official repos / AUR
+# installing programs from official repos and AUR
 ```sh
 pkgs=(
   # daily utilities
@@ -25,7 +25,7 @@ pkgs=(
   vlc
   ncdu
   kwin-bismuth
-  fzf # TODO:
+  bat
 
   # developer tools
   git
@@ -58,6 +58,12 @@ newgrp docker
 sudo ln -s /usr/bin/nvim /usr/bin/vim
 ```
 
+# install fzf
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
 # oh-my-zsh
 ```sh
 sh -c $("curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh")
@@ -76,12 +82,13 @@ DISABLE_MAGIC_FUNCTIONS="true"
 plugins=(
   git
   colored-man-pages
-  dirhistory
+  # dirhistory
   sudo
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
+# configuring highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[builtin]="fg=cyan,bold"
 ZSH_HIGHLIGHT_STYLES[command]="fg=cyan,bold"
@@ -93,10 +100,8 @@ ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=black,bold"
 source $ZSH/oh-my-zsh.sh
 
 # custom git aliases and stuff
-alias gal="cat ~/.oh-my-zsh/plugins/git/README.md | grep -A10000 '## Aliases' | grep -B10000 '### Main branch preference' | grep '^|
 g' | grep -vw 'svn' | fzf"
 alias gdc="git diff --cached"
-ommit"
 alias grf="git reflog"
 alias grz="git reset"
 alias grzs="git reset --soft"
@@ -181,6 +186,6 @@ git config --global user.email 'igoracmelo@protonmail.com'
 ```sh
 ssh-keygen
 ```
-# install lunarvim
+# install lunarvim (TODO:)
 ```sh
 ```
