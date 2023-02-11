@@ -26,6 +26,8 @@ pkgs=(
   ncdu
   kwin-bismuth
   bat
+  lsd
+  zoxide
 
   # developer tools
   git
@@ -109,7 +111,6 @@ ZSH_HIGHLIGHT_STYLES[double-hyphen-option]="fg=black,bold"
 source $ZSH/oh-my-zsh.sh
 
 # custom git aliases and stuff
-g' | grep -vw 'svn' | fzf"
 alias gdc="git diff --cached"
 alias grf="git reflog"
 alias grz="git reset"
@@ -119,8 +120,7 @@ alias gclean!="git clean -f"
 alias gstl="git stash list --oneline"
 alias gpro="git pull --rebase origin"
 alias gprod="git pull --rebase origin develop"
-alias grl="git log --pretty=\"%C(reset)%<(7)%C(green)%h%C(reset)   %<(90,trunc)%s  %<(11,trunc)%an   %<(10,trunc)%C(yellow)%ar\" --co
-lor"
+alias grl="git log --pretty=\"%C(reset)%<(7)%C(green)%h%C(reset)   %<(90,trunc)%s  %<(11,trunc)%an   %<(10,trunc)%C(yellow)%ar\" --color"
 alias gstk="git stash --keep-index"
 alias gstuk="git stash --include-untracked --keep-index"
 # alias gstau="git stash push -u"
@@ -153,13 +153,17 @@ export FZF_CTRL_T_OPTS="$FZF_BAT"
 bindkey '^ ' forward-word
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# zoxide (TODO:)
+# zoxide
+eval "$(zoxide init zsh)"
 alias j="z"
 alias jj="z -"
 alias ji="zi"
 alias jci="zci"
 
-# bat (TODO:)
+# starship
+eval "$(starship init zsh)"
+
+# bat
 export BAT_PAGER="less -R"
 
 # ffmpeg (TODO: use profiles)
@@ -187,8 +191,15 @@ git config --global user.name 'Igor Melo'
 git config --global user.email 'igoracmelo@protonmail.com'
 ```
 
-# setup starship (TODO:)
+# setup starship
 ```sh
+curl -sS https://starship.rs/install.sh | sh
+```
+
+# setup dotfiles
+```sh
+cd Git/pessoal/dotfiles
+bash init.sh
 ```
 
 # SSH
