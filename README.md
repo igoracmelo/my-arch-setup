@@ -109,6 +109,3 @@ bash init.sh
 ```sh
 ssh-keygen
 ```
-# install lunarvim (TODO:)
-```sh
-```
