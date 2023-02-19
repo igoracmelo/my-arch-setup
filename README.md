@@ -1,8 +1,3 @@
-# sync, install sudo, setup user as sudo
-```sh
-su root -c "pacman -Syu sudo && usermod -aG wheel $USER"
-```
-
 # yay
 ```sh
 sudo pacman -S git base-devel
