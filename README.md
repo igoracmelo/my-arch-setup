@@ -49,6 +49,8 @@ yay -S --needed ${pkgs[@]}
 ```sh
 sudo usermod -aG docker $USER
 newgrp docker
+sudo systemctl start docker
+docker run --rm hello-world
 ```
 
 # globally alias neovim to vim
