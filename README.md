@@ -10,7 +10,6 @@ makepkg -si
 ```sh
 pkgs=(
   # daily utilities
-  chromium
   ksysguard
   ffmpeg
   obs-studio
@@ -39,6 +38,7 @@ pkgs=(
   docker
   docker-compose
   visual-studio-code-bin
+  google-chrome
   neovim
 )
 
