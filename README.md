@@ -104,7 +104,11 @@ curl -sS https://starship.rs/install.sh | sh
 
 # setup dotfiles
 ```sh
-cd Git/pessoal/dotfiles
+mkdir ~/Git/pessoal -p
+cd ~/Git/pessoal
+git clone https://github.com/igoracmelo/dotfiles
+cd dotfiles
+rm ~/.zshrc
 bash init.sh
 ```
 
